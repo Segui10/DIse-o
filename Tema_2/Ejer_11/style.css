@@ -1,0 +1,30 @@
+/* Styles go here */
+.header { 
+    margin: 0px;
+    background-color: #BDBDBD;
+    height: 125px;
+}
+
+.menu { 
+    margin: 0px;
+    background-color: #6E6E6E;
+    height: 60px;
+}
+
+body{ 
+    margin: 0px;
+    background-color: #F2F2F2;
+}
+h1{
+    margin: 0px;
+}
+
+footer{
+    margin-top: 150px;
+    background-color: #BDBDBD;
+    height: 215px;
+}
+
+.content{
+    margin-left: 15px;
+}
