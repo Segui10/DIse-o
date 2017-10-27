@@ -1,0 +1,28 @@
+.border1{
+  width: 25%;
+  margin-left: 20px;
+  margin-top: 10px;
+  border-style: solid;
+  border-top-width: 10px;
+  border-left-width: 1px;
+  border-right-width: 14px;
+  border-bottom-width: 5px;
+  border-color: black;
+  float:left;
+}
+.border2{
+  width: 25%;
+  height: 50px;
+  margin-left: 10px;
+  margin-top: 100px;
+  border-style: solid;
+  border-top-width: 10px;
+  border-left-width: 1px;
+  border-right-width: 14px;
+  border-bottom-width: 5px;
+  border-top-color: red;
+  border-right-color: blue;
+  border-bottom-color: green;
+  border-left-color: grey;
+  float:left;
+}
