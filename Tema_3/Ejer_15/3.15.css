@@ -1,0 +1,15 @@
+h1{
+  margin-left: 10px;
+  margin-top: -40px;
+}
+.container{
+  border: 1.5px solid black;
+  height: 80px;
+  width: 300px;
+}
+
+.imagen{
+  margin-top: 10px;
+  height: 37px;
+  width: 90px;
+}
