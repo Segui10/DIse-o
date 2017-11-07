@@ -1,0 +1,27 @@
+.content{
+  border: 1.5px solid black;
+  padding-top: 10%;
+  padding-left: 20%;
+  width: 50%;
+}
+
+.center{
+  border: 1.5px solid black;
+  height: 40px;
+  width: 60%;
+  margin-bottom: 20%;
+}
+/*.content{
+  border: 1.5px solid black;
+  height: 300px;
+   display: -webkit-flex;
+   display:         flex;
+   -webkit-align-items: center;
+           align-items: center;
+   -webkit-justify-content: center;
+           justify-content: center;
+}
+
+.center{
+  border: 1.5px solid black;
+}*/
