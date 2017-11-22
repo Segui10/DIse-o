@@ -1,0 +1,18 @@
+ul{
+  padding-top: 40px;
+  padding-bottom: 40px;
+  width: 20%;
+  border: 1.5px solid black;
+}
+
+.primero li:nth-child(2){
+  background-color: yellow;
+}
+
+.segundo li:nth-child(2n-1){
+  background-color: yellow;
+}
+
+.tercero li:nth-child(3n){
+  background-color: yellow;
+}

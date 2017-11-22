@@ -1,0 +1,13 @@
+ul{
+  padding-top: 40px;
+  padding-bottom: 40px;
+  width: 20%;
+  border: 1.5px solid black;
+}
+
+.primero li:first-child{
+  background-color: yellow;
+}
+.primero li:last-child{
+  background-color: yellow;
+}

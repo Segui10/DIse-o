@@ -128,3 +128,19 @@ tbody tr:hover{
     height: 70px;
     background-color: rgb(47, 53, 58);
 }
+
+.wireframe{
+    padding: 20px;
+    padding-top: 40px;
+    background-color: rgb(47, 53, 58);
+}
+.wireframe a{
+    margin-right: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+
+.imgl{
+    position: absolute;
+}

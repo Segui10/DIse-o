@@ -76,21 +76,25 @@ var _utils = require('./utils.js');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Context = function () {
   function Context() {
     _classCallCheck(this, Context);
 
+    this.students1 = new Map();
     this.students = [];
     this.gradedTasks = [];
     this.showNumGradedTasks = 1;
 
     if (localStorage.getItem('students')) {
       var students_ = JSON.parse(localStorage.getItem('students'));
+
+      console.log(students_);
       for (var i = 0; i < students_.length; i++) {
-        var p = new _person2.default(students_[i].name, students_[i].surname, students_[i].attitudeTasks, students_[i].gradedTasks);
-        this.students.push(p);
+        this.students1.set(students_[i]["1"].hash, new _person2.default(students_[i]["1"].name, students_[i]["1"].surname, students_[i]["1"].attitudeTasks, students_[i]["1"].gradedTasks));
       }
     }
     if (localStorage.getItem('gradedTasks')) {
@@ -104,31 +108,32 @@ var Context = function () {
   _createClass(Context, [{
     key: 'getTemplateRanking',
     value: function getTemplateRanking() {
-      console.log(this.students);
-      if (this.students && this.students.length > 0) {
-        /* We sort students descending from max number of points to min */
-        this.students.sort(function (a, b) {
-          return b.getTotalPoints() - a.getTotalPoints();
-        });
-        localStorage.setItem('students', JSON.stringify(this.students));
-        var GRADED_TASKS = '';
-        this.gradedTasks.forEach(function (taskItem) {
-          GRADED_TASKS += '<td>' + taskItem.name + '</td>';
-        });
-
-        (0, _utils.loadTemplate)('templates/rankingList.html', function (responseText) {
-          document.getElementById('content').innerHTML = eval('`' + responseText + '`');
-          var tableBody = document.getElementById('idTableRankingBody');
-          this.students.forEach(function (studentItem) {
-            var liEl = studentItem.getHTMLView();
-            tableBody.appendChild(liEl);
-          });
-        }.bind(this));
-      } else {
-        (0, _utils.loadTemplate)('templates/rankingList.html', function (responseText) {
-          document.getElementById('content').innerHTML = eval('`' + responseText + '`');
-        }.bind(this));
+      /** Sort dont works */
+      var arr = [].concat(_toConsumableArray(this.students1.entries())).sort(function (a, b) {
+        a[1].getTotalPoints() < b[1].getTotalPoints();
+      });
+      console.log(arr);
+      /*this.arr.sort(function(a, b) {
+        return (b[1].getTotalPoints() - a[1].getTotalPoints());
+      });*/
+      this.students1 = new Map();
+      for (var i = 0; i < arr.length; i++) {
+        this.students1.set(arr[i]["1"].hash, new _person2.default(arr[i]["1"].name, arr[i]["1"].surname, arr[i]["1"].attitudeTasks, arr[i]["1"].gradedTasks));
       }
+      localStorage.setItem('students', JSON.stringify(arr));
+      var GRADED_TASKS = '';
+      this.gradedTasks.forEach(function (taskItem) {
+        GRADED_TASKS += '<td>' + taskItem.name + '</td>';
+      });
+
+      (0, _utils.loadTemplate)('templates/rankingList.html', function (responseText) {
+        document.getElementById('content').innerHTML = eval('`' + responseText + '`');
+        var tableBody = document.getElementById('idTableRankingBody');
+        this.students1.forEach(function (studentItem) {
+          var liEl = studentItem.getHTMLView();
+          tableBody.appendChild(liEl);
+        });
+      }.bind(this));
     }
 
     /** Create a form to create a GradedTask that will be added to every student */
@@ -149,7 +154,7 @@ var Context = function () {
           var gtask = new _gradedtask2.default(name, description, weight);
           _this.gradedTasks.push(gtask);
           localStorage.setItem('gradedTasks', JSON.stringify(_this.gradedTasks));
-          _this.students.forEach(function (studentItem) {
+          _this.students1.forEach(function (studentItem) {
             studentItem.addGradedTask(gtask);
           });
           _this.getTemplateRanking();
@@ -168,7 +173,6 @@ var Context = function () {
         var _this2 = this;
 
         var saveStudent = document.getElementById('newStudent');
-
         saveStudent.addEventListener('submit', function () {
           var name = document.getElementById('idFirstName').value;
           var surnames = document.getElementById('idSurnames').value;
@@ -176,34 +180,37 @@ var Context = function () {
           _this2.gradedTasks.forEach(function (iGradedTask) {
             student.addGradedTask(new _gradedtask2.default(iGradedTask.name));
           });
-          _this2.students.push(student);
-          localStorage.setItem('students', JSON.stringify(_this2.students));
+          _this2.students1.set(student.hash, student);
+          var arr = [].concat(_toConsumableArray(_this2.students1));
+          for (var i = 0; i < arr.length; i++) {
+            _this2.students1.set(arr[i]["1"].hash, new _person2.default(arr[i]["1"].name, arr[i]["1"].surname, arr[i]["1"].attitudeTasks, arr[i]["1"].gradedTasks));
+          }
+          localStorage.setItem('students', JSON.stringify(arr));
         });
       }.bind(this);
       (0, _utils.loadTemplate)('templates/addStudent.html', callback);
     }
+    /** Delete a person to the context app */
+
   }, {
     key: 'deletePerson',
     value: function deletePerson(hash) {
-      /*let studMap= new Map();
-      let keyObj = {"hash":hash};
-      studMap.set(this.students,keyObj);
-      //studMap.set(keyObj);
-      console.log(studMap);*/
-      var cont = 0;
-      var posDelet = 0;
-      this.students.forEach(function (studentItem) {
-        if (studentItem.hash == hash) {
-          posDelet = cont;
-        }
-        cont++;
-      });
-      this.students.splice(posDelet, 1);
-      if (this.students) {
+      var posDelet = this.obtainStudent(hash);
+      var arr = [].concat(_toConsumableArray(this.students1));
+      this.students1 = new Map();
+      console.log(arr);
+      arr.splice(posDelet, 1);
+      if (this.students1) {
         localStorage.setItem("students", []);
+      }
+      for (var i = 0; i < arr.length; i++) {
+        this.students1.set(arr[i]["1"].hash, new _person2.default(arr[i]["1"].name, arr[i]["1"].surname, arr[i]["1"].attitudeTasks, arr[i]["1"].gradedTasks));
       }
       context.getTemplateRanking();
     }
+
+    /** Obtain a new name and surname for a person to the context app */
+
   }, {
     key: 'loadUpdateStudent',
     value: function loadUpdateStudent(hash) {
@@ -213,32 +220,61 @@ var Context = function () {
         var students = JSON.parse(localStorage.getItem('students'));
         var position = this.obtainStudent(hash);
         var saveStudent = document.getElementById('updateStudent');
-        document.getElementById('idFirstName').value = students[position].name;
-        document.getElementById('idSurnames').value = students[position].surname;
+        document.getElementById('idFirstName').value = students[position][1].name;
+        document.getElementById('idSurnames').value = students[position][1].surname;
         saveStudent.addEventListener('submit', function () {
           _this3.updatePerson(hash, document.getElementById('idFirstName').value, document.getElementById('idSurnames').value);
         });
       }.bind(this);
       (0, _utils.loadTemplate)('templates/updateStudent.html', callback);
     }
+
+    /** Update a person to the context app */
+
   }, {
     key: 'updatePerson',
     value: function updatePerson(hash, Nname, Nsurname) {
+      console.log(Nsurname);
       var position = this.obtainStudent(hash);
       var students = JSON.parse(localStorage.getItem('students'));
-      students[position].name = Nname;
-      students[position].surname = Nsurname;
-      this.students = students;
-      localStorage.setItem('students', JSON.stringify(students));
+      students[position][1].name = Nname;
+      students[position][1].surname = Nsurname;
+      for (var i = 0; i < students.length; i++) {
+        this.students1.set(students[i]["1"].hash, new _person2.default(students[i]["1"].name, students[i]["1"].surname, students[i]["1"].attitudeTasks, students[i]["1"].gradedTasks));
+      }
+      localStorage.setItem('students', JSON.stringify(this.students1));
       context.getTemplateRanking();
     }
+
+    /** Extra Points a person to the context app */
+
+  }, {
+    key: 'xpPerson',
+    value: function xpPerson(hash) {
+      obtainStudent(hash);
+      var popUp = popupwindow('templates/listAttitudeTasks.html', 'XP points to ' + this.name, 300, 400);
+      var personInstance = this;
+      console.log(personInstance);
+      popUp.onload = function () {
+        popUp.document.title = personInstance.name + ' ' + personInstance.surname + ' XP points';
+        var xpButtons = popUp.document.getElementsByClassName('xp');
+        Array.prototype.forEach.call(xpButtons, function (xpBItem) {
+          xpBItem.addEventListener('click', function () {
+            popUp.close();
+            personInstance.addAttitudeTask(new AttitudeTask('XP task', xpBItem.innerHTML, xpBItem.value));
+          });
+        });
+      };
+    }
+
+    /** obtain position of a person to the context app */
+
   }, {
     key: 'obtainStudent',
     value: function obtainStudent(hash) {
       var cont = 0;
       var position = 0;
-      var students = JSON.parse(localStorage.getItem('students'));
-      students.forEach(function (studentItem) {
+      this.students1.forEach(function (studentItem) {
         if (studentItem.hash == hash) {
           position = cont;
         }
@@ -315,10 +351,12 @@ window.onload = function () {
   _context.context.getTemplateRanking();
 };
 
+/** Lisenerts to clear and routing the window location*/
 window.addEventListener("hashchange", router, false);
 window.addEventListener("searchchange", location.search = "", false);
 window.addEventListener("searchchange", location = "#rankingList", false);
 
+/** Function to roting app */
 function router() {
   console.log(location);
   var op = location.hash.split("/")[0];
@@ -359,12 +397,12 @@ function router() {
       position(op);
       _context.context.getTemplateRanking();
       location.hash = "#rankingList";
-      location.search = "";
       break;
 
   }
 }
 
+/** Function to change the location of the menu */
 function position(op) {
   switch (op) {
     case "#addStudent":
@@ -574,9 +612,7 @@ var Person = function () {
           });
         };
       });
-      addUpdateStudent.addEventListener('click', function () {
-        _context.context.loadUpdateStudent(_this.hash, _this.name, _this.surname);
-      });
+
       var that = this;
 
       this.gradedTasks.forEach(function (gTaskItem) {

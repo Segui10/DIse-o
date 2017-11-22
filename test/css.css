@@ -1,0 +1,22 @@
+body{
+    margin: 0px;
+}
+
+body > .test{
+    position: absolute;
+    height: 60px;
+    width: 100%;
+    background-color: red;
+}
+
+.test > div{
+    float: left;
+    margin-right: 5px;
+    height: 60px;
+    width: 40%;
+    background-color: blue;
+}
+
+table td tr{
+    border: 1.5px solid black;
+}
