@@ -8,6 +8,11 @@ ul{
 .primero li:first-child{
   background-color: yellow;
 }
+
 .primero li:last-child{
   background-color: yellow;
+}
+
+td:first-of-type{
+  background-color: #ececec;
 }

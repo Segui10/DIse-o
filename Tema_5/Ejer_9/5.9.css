@@ -1,0 +1,11 @@
+.primero, .segundo, .tercero {
+   display: inline;
+   float: left;
+   margin: 1em;
+   padding: .3em;
+   border: 1px solid black;
+   width: 125px;
+   height: 250px;
+}
+.segundo{ overflow: hidden;}
+.tercero{ overflow-y: scroll;}

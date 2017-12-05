@@ -1,0 +1,20 @@
+div{
+  display: inline-block;
+  margin-right: 60%;
+}
+
+.content{
+  width: 25px;
+  height: 25px;
+  padding: 50px;
+  border: 1px solid black;
+  box-sizing: content-box;
+}
+
+.box{
+  width: 25px;
+  height: 25px;
+  padding: 50px;
+  border: 1px solid black;
+  box-sizing: border-box;
+}
