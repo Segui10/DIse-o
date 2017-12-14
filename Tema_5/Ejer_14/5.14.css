@@ -1,0 +1,8 @@
+body>div{
+  height: 600px;
+  width: 960px;
+  background-image: url("img/0jwf.png"),url("img/p-1665-1215.png"),url("img/sticker,375x360.png"),url("img/background-1789175_960_720.png");
+  background-position: center bottom, center, left top, center;
+  background-size: 230px 230px,150px 150px,250px 250px,960px 600px ;
+  background-repeat: no-repeat;
+}

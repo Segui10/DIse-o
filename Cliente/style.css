@@ -17,7 +17,24 @@ body{
 #content{
     margin-top: 100px;
     margin-bottom: 80px;
-    margin-left: 10%;
+    margin-left: 5%;
+    animation: list 1.5s;
+}
+
+.divblue:hover{
+    transform:scale(1.1,1.1);
+}
+
+.divlast:hover{
+    transform:scale(1.1,1.1);
+}
+
+h3{
+    text-shadow: 3px 3px #8B8B8B;
+}
+
+#content table{
+    box-shadow: 5px 8px #7E7E7E;  
 }
 
 .container{
@@ -68,22 +85,9 @@ body{
     height: 70px;
     background-color: rgb(47, 53, 58);
 }
-
-.current .location{
-    margin-top: 17px;
-    margin-left: 35%;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 10px solid #01BCF3;
-    width: 1px;
+.nocurrent .location{
+    visibility: hidden;
 }
-
-.divblue{
-    height: 15px;
-    background-color: #01BCF3;
-    margin-top: 70;
-}
-
 table{
     border-collapse: collapse;
     border-style: solid;    
@@ -107,18 +111,6 @@ tbody td{
     padding-bottom: 10px;
 }
 
-tbody tr:hover{
-    background-color: rgba(1, 203, 243, 0.3);
-}
-
-.divlast{
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    height: 18px;
-    background-color: #01BCF3;
-    color: rgba(200, 200, 200);
-}
 
 .footer{
     position: fixed;
@@ -129,18 +121,98 @@ tbody tr:hover{
     background-color: rgb(47, 53, 58);
 }
 
-.wireframe{
-    padding: 20px;
-    padding-top: 40px;
-    background-color: rgb(47, 53, 58);
-}
-.wireframe a{
-    margin-right: 10px;
-    text-decoration: none;
-    color: white;
+tbody tr:hover{
+    background-color: rgba(1, 203, 243, 0.3);
 }
 
+.divblue{
+    height: 15px;
+    background-color: #01BCF3;
+    margin-top: 70;
+    animation: pulse 20s infinite;
+}
 
-.imgl{
+.divlast{
     position: absolute;
+    width: 100%;
+    text-align: center;
+    height: 18px;
+    background-color: #01BCF3;
+    color: rgba(200, 200, 200);
+    animation: pulse 20s infinite;
 }
+
+.location {
+    margin-top: 17px;
+    margin-left: 35%;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #01BCF3;
+    width: 1px;
+    animation: test 20s infinite;
+}
+
+@keyframes pulse {
+    0% {
+      background-color: #01F3DF;
+    }
+    15% {
+        background-color: #016AF3;
+      }
+    30% {
+      background-color: #F301E7;
+    }
+    45% {
+        background-color: #F30101;
+      }
+    60% {
+      background-color: #F38A01;
+    }
+    75% {
+        background-color: #E3F301;
+      }
+    90% {
+        background-color: #01F30D;
+    }
+    100% {
+        background-color: #01F3DF;
+    }
+  }
+
+  @keyframes test {
+    0% {
+        border-bottom-color: #01F3DF;
+      }
+      15% {
+        border-bottom-color: #016AF3;
+        }
+      30% {
+        border-bottom-color: #F301E7;
+      }
+      45% {
+        border-bottom-color: #F30101;
+        }
+      60% {
+        border-bottom-color: #F38A01;
+      }
+      75% {
+        border-bottom-color: #E3F301;
+        }
+      90% {
+        border-bottom-color: #01F30D;
+      }
+      100% {
+        border-bottom-color: #01F3DF;
+      }
+  }
+
+  @keyframes list{
+    0% {
+        opacity: 0;
+        transform:translate(0px,20px);
+    }
+    100% {
+        opacity: 1;
+        transform:translate(0px,0px);
+    }
+  }
