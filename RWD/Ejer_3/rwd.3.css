@@ -1,0 +1,87 @@
+body {
+    
+        width: 85%;
+    
+        margin: 0 auto;
+    
+        font: 90% Georgia, "Times New Roman", Times, serif;
+    
+      }
+    
+      .col1 {
+    
+        float: left;
+    
+        width: 40%;
+    
+        margin-right: 5%;
+    
+      }
+    
+      .col2 {
+    
+        float: left;
+    
+        width: 25%;
+    
+        margin-right: 5%;
+    
+      }
+    
+      .col3 {
+    
+        float: right;
+    
+        width: 25%;
+    
+      }
+    
+      @media screen and (max-width: 768px) {
+    
+      .col1 {
+    
+      float: left;
+    
+      width: 55%;
+    
+      margin-right: 5%;
+    
+    }
+    
+    .col2 {
+    
+    float: right;
+    
+    width: 35%;
+    
+    margin: 0;
+    
+    }
+    
+    .col3 {
+    
+    float: none;
+    
+    width: 100%;
+    
+    clear: both;
+    
+    }
+
+    }
+    
+    @media screen and (max-width: 570px) {
+    
+    .col1, .col2, .col3 {
+    
+    float: none;
+    
+    width: 100%;
+    
+    margin: 0;
+    
+    }
+    
+    }
+    
+    
