@@ -3,52 +3,56 @@ body{
     margin: 0px;
     font-family: 'Nunito Sans', sans-serif;
     background-color: rgb(240, 240, 240);
+    display: flex;
 }
 
 /*------------------------------------*\
   Header
 \*------------------------------------*/
 /*Block component*/
-.header{
+.block-header{
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 70px;
+    height: 85px;
     background-color: rgb(47, 53, 58);
+    display: flex;
+    align-self: flex-start;
+    
 }
-    /*Block*/
-    .menu{
+    /*Elemnt Block menu*/
+    .block-header-nav{
+        width: 100%;
         height: 70px;
-        margin-left: 20%;
-        margin-right: 20%;
         background-color: rgb(47, 53, 58);
+        display: flex;
+        flex-flow: row;
+        justify-content: center;
     }
-    /*Block*/
-    .current{
-        float: left;
+    /*Element Block option*/
+    .block-header-nav-current{
+        width: 200px;
         margin-top: 0px;
-        width: 180px;
-        height: 70px;
         background-color: rgb(47, 53, 58);
+        align-self: flex-start;
     }
-    /*Block*/
-    .nocurrent{
-        float: left;
+    /*Element Block option*/
+    .block-header-nav-nocurrent{
+        width: 200px;
         margin-top: 0px;
-        width: 180px;
-        height: 70px;
         background-color: rgb(47, 53, 58);
+        align-self: flex-start;
     }
 
-        /*Block*/
-        .menucont{
+        /*Element Block container*/
+        .block-header-nav-container{
             margin-top: 25px;
         }
 
-        /*Element*/
-        .amenu{
-            padding: 21px;
+        /*Element text option*/
+        .block-header-nav-text{
+            padding: 18px;
             font-weight: bold;
             text-align: center;
             font-size: 1em;
@@ -57,26 +61,30 @@ body{
             
         }
 
-        /*Modifier*/
-        .current .amenu{
+        /*Modifier option*/
+        .block-header-nav-current .block-header-nav-text{
             color: white;
         }
 
-        /*Modifier*/
-        .amenu:hover{
+        /*Modifier option*/
+        .block-header-nav-text:hover{
             color: white;
         }
 
-/*Element*/
-.divblue{
+/*Element decoration*/
+.block-header-decoration{
+    position: fixed;
+    width: 100%;
     height: 15px;
     background-color: #01BCF3;
     margin-top: 70;
     animation: pulse 20s infinite;
+    display: flex;
+    align-self: flex-end;
 }
 
-/*Element*/
-.location {
+/*Element current page*/
+.block-header-nav-location {
     margin-top: 17px;
     margin-left: 35%;
     border-left: 10px solid transparent;
@@ -86,8 +94,8 @@ body{
     animation: test 20s infinite;
 }
 
-/*Modifier*/
-.nocurrent .location{
+/*Modifier current page*/
+.block-header-nav-nocurrent .block-header-nav-location{
     visibility: hidden;
 }
 
@@ -95,47 +103,49 @@ body{
   Main
 \*------------------------------------*/
 /*Block component*/
-.content{
+.block-main{
     margin-top: 100px;
-    margin-bottom: 80px;
-    margin-left: 5%;
+    margin-bottom: 90px;
     animation: list 1.5s;
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
 }
-    /*Block*/
-    .rankinglist{
+    /*Block table*/
+    .block-main-table{
         box-shadow: 5px 8px #7E7E7E;
         border-collapse: collapse;
         border-style: solid;    
         border-color: rgb(47, 53, 58);
-        background-color: rgb(200, 200, 200); 
+        background-color: rgb(200, 200, 200);
     }
 
-    /*Element*/
-    tbody td{
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-
-    /*Modifier*/
-    tbody tr:hover{
-        background-color: rgba(1, 203, 243, 0.3);
-    }
-
-    /*Block*/
-    thead{
+    /*Block column name*/
+    .block-main-table-head{
         background-color: rgb(47, 53, 58);
         color: white;
     }
 
-        /*Element*/
-        thead td{
+        /*Element name*/
+        .block-main-table-head-column{
             padding-top: 10px;
             padding-bottom: 10px;
             border: 1px solid rgb(47, 53, 58);
         }
 
-    /*Modifier*/
-    .titleshadow{
+    /*Element column*/
+    .block-main-table-column{
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    /*Modifier row*/
+    .block-main-table-row:hover{
+        background-color: rgba(1, 203, 243, 0.3);
+    }
+
+    /*Modifier shadow table*/
+    .block-main-table-shadow{
        text-shadow: 3px 3px #8B8B8B;
     }
 
@@ -143,17 +153,20 @@ body{
 /*------------------------------------*\
   Footer
 \*------------------------------------*/
-.footer{
+/*Block component*/
+.block-footer{
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 70px;
     background-color: rgb(47, 53, 58);
+    display: flex;
+    align-self: flex-end;
 }
 
-
-.divlast{
+/*Element decoration*/
+.block-footer-decoration{
     position: absolute;
     width: 100%;
     text-align: center;
@@ -161,8 +174,108 @@ body{
     background-color: #01BCF3;
     color: rgba(200, 200, 200);
     animation: pulse 20s infinite;
+    align-self: flex-start;
 }
 
+
+/*------------------------------------*\
+  Responsive
+\*------------------------------------*/
+@media (max-width: 1200px) { 
+    /*Block*/
+    .current{
+        width: 190px;
+    }
+    /*Block*/
+    .nocurrent{
+        width: 190px;
+    }
+    
+}
+
+@media (max-width: 992px) { 
+    /*Block*/
+    .current{
+        width: 180px;
+    }
+    /*Block*/
+    .nocurrent{
+        width: 180px;
+    }
+}
+
+    /*Element*/
+    .amenu{
+        font-size: .8em;
+    }
+      
+@media (max-width: 768px) { 
+
+    .menu{
+        margin-left: 10%;
+    }
+     /*Block*/
+     .current{
+        width: 170px;
+        height: 45px;
+    }
+    /*Block*/
+    .nocurrent{
+        width: 170px;
+        height: 45px;
+    }
+    
+}
+
+@media (max-width: 576px) { 
+
+    .menu{
+        margin-left: 0px;
+        height: 150px;
+    }
+
+    .menucont{
+        margin-top: 25px;
+        margin-left: 30%;
+    }
+
+    .header{
+        height: 150px;
+    }
+
+    .footer{
+        height: 18px;
+    }
+    .header{
+        height: 150px;
+    }
+
+    /*Block*/
+    .current{
+        width: 100%;
+    }
+    /*Block*/
+    .nocurrent{
+        width: 100%;
+    }
+    
+    .divblue{
+        margin-top: 150;
+    }
+
+    .location {
+        visibility: hidden;
+    }
+
+    .content{
+        margin-top: 170px;
+    }
+}
+
+
+/*------------------------------------*\
+  Animation
+\*------------------------------------*/
 @keyframes pulse {
     0% {
       background-color: #01F3DF;
@@ -217,6 +330,33 @@ body{
       }
   }
 
+  @keyframes borderRes {
+    0% {
+        border-color: #01F3DF;
+      }
+      15% {
+        border-color: #016AF3;
+        }
+      30% {
+        border-color: #F301E7;
+      }
+      45% {
+        border-color: #F30101;
+        }
+      60% {
+        border-color: #F38A01;
+      }
+      75% {
+        border-color: #E3F301;
+        }
+      90% {
+        border-color: #01F30D;
+      }
+      100% {
+        border-color: #01F3DF;
+      }
+  }
+
   @keyframes list{
     0% {
         opacity: 0;
@@ -227,3 +367,4 @@ body{
         transform:translate(0px,0px);
     }
   }
+

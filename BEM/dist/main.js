@@ -123,7 +123,7 @@ var Context = function () {
       localStorage.setItem('students', JSON.stringify(arr));
       var GRADED_TASKS = '';
       this.gradedTasks.forEach(function (taskItem) {
-        GRADED_TASKS += '<td>' + taskItem.name + '</td>';
+        GRADED_TASKS += '<td role="column">' + taskItem.name + '</td>';
       });
 
       (0, _utils.loadTemplate)('templates/rankingList.html', function (responseText) {
@@ -353,7 +353,6 @@ window.onload = function () {
 
 /** Lisenerts to clear and routing the window location*/
 window.addEventListener("hashchange", router, false);
-window.addEventListener("searchchange", location.search = "", false);
 window.addEventListener("searchchange", location = "#rankingList", false);
 
 /** Function to roting app */
@@ -406,27 +405,27 @@ function router() {
 function position(op) {
   switch (op) {
     case "#addStudent":
-      document.getElementById("rankingList").className = 'nocurrent';
-      document.getElementById("addGradedTask").className = 'nocurrent';
-      document.getElementById("addStudent").className = 'current';
+      document.getElementById("rankingList").className = 'block-header-nav-nocurrent';
+      document.getElementById("addGradedTask").className = 'block-header-nav-nocurrent';
+      document.getElementById("addStudent").className = 'block-header-nav-current';
       break;
 
     case "#rankingList":
-      document.getElementById("addStudent").className = 'nocurrent';
-      document.getElementById("addGradedTask").className = 'nocurrent';
-      document.getElementById("rankingList").className = 'current';
+      document.getElementById("addStudent").className = 'block-header-nav-nocurrent';
+      document.getElementById("addGradedTask").className = 'block-header-nav-nocurrent';
+      document.getElementById("rankingList").className = 'block-header-nav-current';
       break;
 
     case "#addGradedTask":
-      document.getElementById("rankingList").className = 'nocurrent';
-      document.getElementById("addStudent").className = 'nocurrent';
-      document.getElementById("addGradedTask").className = 'current';
+      document.getElementById("rankingList").className = 'block-header-nav-nocurrent';
+      document.getElementById("addStudent").className = 'block-header-nav-nocurrent';
+      document.getElementById("addGradedTask").className = 'block-header-nav-current';
       break;
 
     default:
-      document.getElementById("addStudent").className = 'nocurrent';
-      document.getElementById("addGradedTask").className = 'nocurrent';
-      document.getElementById("rankingList").className = 'current';
+      document.getElementById("addStudent").className = 'block-header-nav-nocurrent';
+      document.getElementById("addGradedTask").className = 'block-header-nav-nocurrent';
+      document.getElementById("rankingList").className = 'block-header-nav-current';
       break;
 
   }
@@ -539,7 +538,7 @@ var Person = function () {
       var _this = this;
 
       var liEl = document.createElement('tr');
-
+      liEl.setAttribute("class", "block-main-table-row");
       var esEL = (0, _utils.getElementTd)(this.surname + ', ' + this.name);
       esEL.addEventListener('click', function () {
         (0, _utils.loadTemplate)('templates/detailStudent.html', function (responseText) {
@@ -695,6 +694,7 @@ function getElementTd(text) {
     t = document.createTextNode(text); // Create a text node
   }
   tdEl.appendChild(t);
+  tdEl.setAttribute("class", "block-main-table-column");
   return tdEl;
 }
 
