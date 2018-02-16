@@ -5,6 +5,30 @@ body{
     background-color: rgb(240, 240, 240);
     display: flex;
 }
+/*------------------------------------*\
+           Table of Contents
+-Header
+* block-header....................Block contain all the elements of header
+* block-header-nav................Menu of the distin page
+* block-header-nav-current........Current page 
+* block-header-nav-nocurrent......Another pages
+* block-header-nav-container......Container of the options
+* block-header-nav-text...........Text of the options
+* block-header-decoration.........Header decoration
+
+-Main
+* block-main......................Block contain all the elements of main
+* block-main-table................Table of the students
+* block-main-table-head...........Head of the student table
+* block-main-table-head-column....Column name of the student table
+* block-main-table-column.........Columns of the student table
+* block-main-table-row............Rows of the student table
+
+-Footer
+* block-footer....................Block contain all the elements of footer
+* block-footer-decoration.........Footer decorations
+
+\*------------------------------------*/
 
 /*------------------------------------*\
   Header
@@ -367,4 +391,5 @@ body{
         transform:translate(0px,0px);
     }
   }
+
 
