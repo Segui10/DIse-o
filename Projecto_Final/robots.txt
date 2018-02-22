@@ -1,0 +1,5 @@
+User-Agent: *
+Disallow: 
+Allow: /145.239.199.9/DIse-o/Cliente/?#rankingList
+Allow: /145.239.199.9/DIse-o/Cliente/?#addStudent
+Allow: /145.239.199.9/DIse-o/Cliente/?#addGradedTask

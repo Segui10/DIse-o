@@ -5,6 +5,14 @@ body{
     background-color: rgb(240, 240, 240);
     display: flex;
 }
+.wraper{
+    display: grid;
+    grid-template-columns: 10% 1140px;
+    grid-template-areas:
+    "header  header "
+    "...... content"
+    "footer  footer";
+}
 /*------------------------------------*\
            Table of Contents
 -Header
@@ -35,6 +43,7 @@ body{
 \*------------------------------------*/
 /*Block component*/
 .block-header{
+    grid-area: header;
     position: fixed;
     top: 0;
     left: 0;
@@ -128,12 +137,10 @@ body{
 \*------------------------------------*/
 /*Block component*/
 .block-main{
+    grid-area: content;
     margin-top: 100px;
     margin-bottom: 90px;
-    animation: list 1.5s;
-    display: flex;
-    flex-flow: row;
-    justify-content: flex-start;
+    animation: list 1.5s linear;
 }
     /*Block table*/
     .block-main-table{
@@ -179,14 +186,13 @@ body{
 \*------------------------------------*/
 /*Block component*/
 .block-footer{
+    grid-area: footer;
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 70px;
     background-color: rgb(47, 53, 58);
-    display: flex;
-    align-self: flex-end;
 }
 
 /*Element decoration*/
@@ -197,7 +203,6 @@ body{
     height: 18px;
     background-color: #01BCF3;
     animation: pulse 20s infinite;
-    align-self: flex-start;
 }
 
 
@@ -206,11 +211,11 @@ body{
 \*------------------------------------*/
 @media (max-width: 1200px) { 
     /*Block*/
-    .current{
+    .block-header-nav-current{
         width: 190px;
     }
     /*Block*/
-    .nocurrent{
+    .block-header-nav-nocurrent{
         width: 190px;
     }
     
@@ -218,32 +223,32 @@ body{
 
 @media (max-width: 992px) { 
     /*Block*/
-    .current{
+    .block-header-nav-current{
         width: 180px;
     }
     /*Block*/
-    .nocurrent{
+    .block-header-nav-nocurrent{
         width: 180px;
     }
 }
 
     /*Element*/
-    .amenu{
+    .block-header-nav-text{
         font-size: .8em;
     }
       
 @media (max-width: 768px) { 
 
-    .menu{
+    .block-header-nav{
         margin-left: 10%;
     }
-     /*Block*/
-     .current{
+    
+     .block-header-nav-current{
         width: 170px;
         height: 45px;
     }
-    /*Block*/
-    .nocurrent{
+    
+    .block-header-nav-nocurrent{
         width: 170px;
         height: 45px;
     }
@@ -251,46 +256,46 @@ body{
 }
 
 @media (max-width: 576px) { 
-
-    .menu{
-        margin-left: 0px;
-        height: 150px;
+    .wraper{
+        grid-template-areas:
+        "header  header "
+        "content content"
+        "footer  footer";
     }
 
-    .menucont{
+    .block-header-nav{
+        flex-flow: column;
+        height: 110px;
+    }
+
+    .block-header-nav-container{
         margin-top: 25px;
         margin-left: 30%;
     }
 
-    .header{
+    .block-header{
         height: 150px;
     }
 
-    .footer{
+    .block-footer{
         height: 18px;
     }
-    .header{
-        height: 150px;
-    }
-
-    /*Block*/
-    .current{
+    .block-header-nav-current{
         width: 100%;
     }
-    /*Block*/
-    .nocurrent{
+    .block-header-nav-nocurrent{
         width: 100%;
     }
     
-    .divblue{
+    .block-header-decoration{
         margin-top: 150;
     }
 
-    .location {
+    .block-header-nav-location {
         visibility: hidden;
     }
 
-    .content{
+    .block-main{
         margin-top: 170px;
     }
 }
