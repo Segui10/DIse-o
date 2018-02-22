@@ -570,6 +570,10 @@ var Person = function () {
       routeXp.setAttributeNode(att);
       routeXp.appendChild((0, _utils.getElementTd)(addAttitudeTaskEl));
 
+      var divid = document.createElement('div');
+      divid.setAttribute('id', "xpStudent/" + this.hash);
+      liEl.appendChild(divid);
+
       var addDeleteStudent = document.createElement('button');
       tb = document.createTextNode('Delete');
       addDeleteStudent.appendChild(tb);
@@ -581,6 +585,10 @@ var Person = function () {
       routeDelete.setAttributeNode(att);
       routeDelete.appendChild((0, _utils.getElementTd)(addDeleteStudent));
 
+      divid = document.createElement('div');
+      divid.setAttribute('id', "deleteStudent/" + this.hash);
+      liEl.appendChild(divid);
+
       var addUpdateStudent = document.createElement('button');
       tb = document.createTextNode('Update');
       addUpdateStudent.appendChild(tb);
@@ -591,6 +599,10 @@ var Person = function () {
       att.value = "#updateStudent/" + this.hash;
       routeUpdate.setAttributeNode(att);
       routeUpdate.appendChild((0, _utils.getElementTd)(addUpdateStudent));
+
+      divid = document.createElement('div');
+      divid.setAttribute('id', "updateStudent/" + this.hash);
+      liEl.appendChild(divid);
 
       liEl.appendChild(routeUpdate);
       liEl.appendChild(routeDelete);
@@ -616,6 +628,7 @@ var Person = function () {
 
       this.gradedTasks.forEach(function (gTaskItem) {
         var inputEl = document.createElement('input');
+        inputEl.setAttribute("aria-label", "input-change-gradedtask");
         inputEl.type = 'number';
         inputEl.min = 0;
         inputEl.max = 100;

@@ -196,7 +196,6 @@ body{
     text-align: center;
     height: 18px;
     background-color: #01BCF3;
-    color: rgba(200, 200, 200);
     animation: pulse 20s infinite;
     align-self: flex-start;
 }
@@ -391,5 +390,4 @@ body{
         transform:translate(0px,0px);
     }
   }
-
 
