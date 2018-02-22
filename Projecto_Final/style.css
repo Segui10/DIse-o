@@ -1,0 +1,393 @@
+/* Styles go here */
+body{
+    margin: 0px;
+    font-family: 'Nunito Sans', sans-serif;
+    background-color: rgb(240, 240, 240);
+    display: flex;
+}
+/*------------------------------------*\
+           Table of Contents
+-Header
+* block-header....................Block contain all the elements of header
+* block-header-nav................Menu of the distin page
+* block-header-nav-current........Current page 
+* block-header-nav-nocurrent......Another pages
+* block-header-nav-container......Container of the options
+* block-header-nav-text...........Text of the options
+* block-header-decoration.........Header decoration
+
+-Main
+* block-main......................Block contain all the elements of main
+* block-main-table................Table of the students
+* block-main-table-head...........Head of the student table
+* block-main-table-head-column....Column name of the student table
+* block-main-table-column.........Columns of the student table
+* block-main-table-row............Rows of the student table
+
+-Footer
+* block-footer....................Block contain all the elements of footer
+* block-footer-decoration.........Footer decorations
+
+\*------------------------------------*/
+
+/*------------------------------------*\
+  Header
+\*------------------------------------*/
+/*Block component*/
+.block-header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 85px;
+    background-color: rgb(47, 53, 58);
+    display: flex;
+    align-self: flex-start;
+    
+}
+    /*Elemnt Block menu*/
+    .block-header-nav{
+        width: 100%;
+        height: 70px;
+        background-color: rgb(47, 53, 58);
+        display: flex;
+        flex-flow: row;
+        justify-content: center;
+    }
+    /*Element Block option*/
+    .block-header-nav-current{
+        width: 200px;
+        margin-top: 0px;
+        background-color: rgb(47, 53, 58);
+        align-self: flex-start;
+    }
+    /*Element Block option*/
+    .block-header-nav-nocurrent{
+        width: 200px;
+        margin-top: 0px;
+        background-color: rgb(47, 53, 58);
+        align-self: flex-start;
+    }
+
+        /*Element Block container*/
+        .block-header-nav-container{
+            margin-top: 25px;
+        }
+
+        /*Element text option*/
+        .block-header-nav-text{
+            padding: 18px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 1em;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.57);
+            
+        }
+
+        /*Modifier option*/
+        .block-header-nav-current .block-header-nav-text{
+            color: white;
+        }
+
+        /*Modifier option*/
+        .block-header-nav-text:hover{
+            color: white;
+        }
+
+/*Element decoration*/
+.block-header-decoration{
+    position: fixed;
+    width: 100%;
+    height: 15px;
+    background-color: #01BCF3;
+    margin-top: 70;
+    animation: pulse 20s infinite;
+    display: flex;
+    align-self: flex-end;
+}
+
+/*Element current page*/
+.block-header-nav-location {
+    margin-top: 17px;
+    margin-left: 35%;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #01BCF3;
+    width: 1px;
+    animation: test 20s infinite;
+}
+
+/*Modifier current page*/
+.block-header-nav-nocurrent .block-header-nav-location{
+    visibility: hidden;
+}
+
+/*------------------------------------*\
+  Main
+\*------------------------------------*/
+/*Block component*/
+.block-main{
+    margin-top: 100px;
+    margin-bottom: 90px;
+    animation: list 1.5s;
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+}
+    /*Block table*/
+    .block-main-table{
+        box-shadow: 5px 8px #7E7E7E;
+        border-collapse: collapse;
+        border-style: solid;    
+        border-color: rgb(47, 53, 58);
+        background-color: rgb(200, 200, 200);
+    }
+
+    /*Block column name*/
+    .block-main-table-head{
+        background-color: rgb(47, 53, 58);
+        color: white;
+    }
+
+        /*Element name*/
+        .block-main-table-head-column{
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border: 1px solid rgb(47, 53, 58);
+        }
+
+    /*Element column*/
+    .block-main-table-column{
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    /*Modifier row*/
+    .block-main-table-row:hover{
+        background-color: rgba(1, 203, 243, 0.3);
+    }
+
+    /*Modifier shadow table*/
+    .block-main-table-shadow{
+       text-shadow: 3px 3px #8B8B8B;
+    }
+
+
+/*------------------------------------*\
+  Footer
+\*------------------------------------*/
+/*Block component*/
+.block-footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: rgb(47, 53, 58);
+    display: flex;
+    align-self: flex-end;
+}
+
+/*Element decoration*/
+.block-footer-decoration{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    height: 18px;
+    background-color: #01BCF3;
+    animation: pulse 20s infinite;
+    align-self: flex-start;
+}
+
+
+/*------------------------------------*\
+  Responsive
+\*------------------------------------*/
+@media (max-width: 1200px) { 
+    /*Block*/
+    .current{
+        width: 190px;
+    }
+    /*Block*/
+    .nocurrent{
+        width: 190px;
+    }
+    
+}
+
+@media (max-width: 992px) { 
+    /*Block*/
+    .current{
+        width: 180px;
+    }
+    /*Block*/
+    .nocurrent{
+        width: 180px;
+    }
+}
+
+    /*Element*/
+    .amenu{
+        font-size: .8em;
+    }
+      
+@media (max-width: 768px) { 
+
+    .menu{
+        margin-left: 10%;
+    }
+     /*Block*/
+     .current{
+        width: 170px;
+        height: 45px;
+    }
+    /*Block*/
+    .nocurrent{
+        width: 170px;
+        height: 45px;
+    }
+    
+}
+
+@media (max-width: 576px) { 
+
+    .menu{
+        margin-left: 0px;
+        height: 150px;
+    }
+
+    .menucont{
+        margin-top: 25px;
+        margin-left: 30%;
+    }
+
+    .header{
+        height: 150px;
+    }
+
+    .footer{
+        height: 18px;
+    }
+    .header{
+        height: 150px;
+    }
+
+    /*Block*/
+    .current{
+        width: 100%;
+    }
+    /*Block*/
+    .nocurrent{
+        width: 100%;
+    }
+    
+    .divblue{
+        margin-top: 150;
+    }
+
+    .location {
+        visibility: hidden;
+    }
+
+    .content{
+        margin-top: 170px;
+    }
+}
+
+
+/*------------------------------------*\
+  Animation
+\*------------------------------------*/
+@keyframes pulse {
+    0% {
+      background-color: #01F3DF;
+    }
+    15% {
+        background-color: #016AF3;
+      }
+    30% {
+      background-color: #F301E7;
+    }
+    45% {
+        background-color: #F30101;
+      }
+    60% {
+      background-color: #F38A01;
+    }
+    75% {
+        background-color: #E3F301;
+      }
+    90% {
+        background-color: #01F30D;
+    }
+    100% {
+        background-color: #01F3DF;
+    }
+  }
+
+  @keyframes test {
+    0% {
+        border-bottom-color: #01F3DF;
+      }
+      15% {
+        border-bottom-color: #016AF3;
+        }
+      30% {
+        border-bottom-color: #F301E7;
+      }
+      45% {
+        border-bottom-color: #F30101;
+        }
+      60% {
+        border-bottom-color: #F38A01;
+      }
+      75% {
+        border-bottom-color: #E3F301;
+        }
+      90% {
+        border-bottom-color: #01F30D;
+      }
+      100% {
+        border-bottom-color: #01F3DF;
+      }
+  }
+
+  @keyframes borderRes {
+    0% {
+        border-color: #01F3DF;
+      }
+      15% {
+        border-color: #016AF3;
+        }
+      30% {
+        border-color: #F301E7;
+      }
+      45% {
+        border-color: #F30101;
+        }
+      60% {
+        border-color: #F38A01;
+      }
+      75% {
+        border-color: #E3F301;
+        }
+      90% {
+        border-color: #01F30D;
+      }
+      100% {
+        border-color: #01F3DF;
+      }
+  }
+
+  @keyframes list{
+    0% {
+        opacity: 0;
+        transform:translate(0px,20px);
+    }
+    100% {
+        opacity: 1;
+        transform:translate(0px,0px);
+    }
+  }
+
