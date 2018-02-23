@@ -1,8 +1,11 @@
+@import 'mixin';
+@import 'variables';
+
 /* Styles go here */
 body{
     margin: 0px;
     font-family: 'Nunito Sans', sans-serif;
-    background-color: rgb(240, 240, 240);
+    background-color: $color-background;
     display: flex;
 }
 .wraper{
@@ -14,6 +17,7 @@ body{
     "footer  footer";
 }
 /*------------------------------------*\
+
            Table of Contents
 -Header
 * block-header....................Block contain all the elements of header
@@ -39,6 +43,7 @@ body{
 \*------------------------------------*/
 
 /*------------------------------------*\
+
   Header
 \*------------------------------------*/
 /*Block component*/
@@ -49,7 +54,7 @@ body{
     left: 0;
     width: 100%;
     height: 85px;
-    background-color: rgb(47, 53, 58);
+    background-color: $color-base;
     display: flex;
     align-self: flex-start;
     
@@ -58,7 +63,7 @@ body{
     .block-header-nav{
         width: 100%;
         height: 70px;
-        background-color: rgb(47, 53, 58);
+        background-color: $color-base;
         display: flex;
         flex-flow: row;
         justify-content: center;
@@ -67,14 +72,14 @@ body{
     .block-header-nav-current{
         width: 200px;
         margin-top: 0px;
-        background-color: rgb(47, 53, 58);
+        background-color: $color-base;
         align-self: flex-start;
     }
     /*Element Block option*/
     .block-header-nav-nocurrent{
         width: 200px;
         margin-top: 0px;
-        background-color: rgb(47, 53, 58);
+        background-color: $color-base;
         align-self: flex-start;
     }
 
@@ -90,30 +95,30 @@ body{
             font-weight: bold;
             font-size: 1em;
             text-decoration: none;
-            color: rgba(255, 255, 255, 0.57);
+            color: $color-text2;
             
         }
 
         /*Modifier option*/
         .block-header-nav-current .block-header-nav-text{
-            color: white;
+            color: $color-text1;
         }
 
         /*Modifier option*/
         .block-header-nav-text:hover{
-            color: white;
+            color: $color-text1;
         }
 
 /*Element decoration*/
 .block-header-decoration{
     text-decoration: none;
-    color: black;
+    color: $color-text3;
     position: fixed;
     width: 100%;
     height: 15px;
-    background-color: #01BCF3;
+    background-color: $color-decoration;
     margin-top: 70;
-    animation: pulse 20s infinite;
+    @include animations(pulse, 20s, infinite);
     display: flex;
     align-self: flex-end;
 }
@@ -122,11 +127,9 @@ body{
 .block-header-nav-location {
     margin-top: 17px;
     margin-left: 45%;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 10px solid #01BCF3;
+    @include location($color-decoration);
     width: 1px;
-    animation: test 20s infinite;
+    @include animations(test, 20s, infinite);
 }
 
 /*Modifier current page*/
@@ -140,6 +143,7 @@ body{
 }
 
 /*------------------------------------*\
+
   Main
 \*------------------------------------*/
 /*Block component*/
@@ -147,28 +151,28 @@ body{
     grid-area: content;
     margin-top: 100px;
     margin-bottom: 90px;
-    animation: list 1.5s linear;
+    @include animations(list, 1.5s);
 }
     /*Block table*/
     .block-main-table{
-        box-shadow: 5px 8px #7E7E7E;
+        @include boxShadow(5px, 8px, $color-box-shadow);
         border-collapse: collapse;
         border-style: solid;    
-        border-color: rgb(47, 53, 58);
-        background-color: rgb(200, 200, 200);
+        border-color: $color-base;
+        background-color: $color-table;
     }
 
     /*Block column name*/
     .block-main-table-head{
-        background-color: rgb(47, 53, 58);
-        color: white;
+        background-color: $color-base;
+        color: $color-text1;
     }
 
         /*Element name*/
         .block-main-table-head-column{
             padding-top: 10px;
             padding-bottom: 10px;
-            border: 1px solid rgb(47, 53, 58);
+            border: 1px solid $color-base;
         }
 
     /*Element column*/
@@ -179,16 +183,12 @@ body{
 
     /*Modifier row*/
     .block-main-table-row:hover{
-        background-color: rgba(1, 203, 243, 0.3);
-    }
-
-    /*Modifier shadow table*/
-    .block-main-table-shadow{
-       text-shadow: 3px 3px #8B8B8B;
+        background-color: $color-table-hover;
     }
 
 
 /*------------------------------------*\
+
   Footer
 \*------------------------------------*/
 /*Block component*/
@@ -199,7 +199,7 @@ body{
     left: 0;
     width: 100%;
     height: 70px;
-    background-color: rgb(47, 53, 58);
+    background-color: $color-base;
 }
 
 /*Element decoration*/
@@ -208,12 +208,14 @@ body{
     width: 100%;
     text-align: center;
     height: 18px;
-    background-color: #01BCF3;
-    animation: pulse 20s infinite;
+    background-color: $color-decoration;
+    @include animations(pulse, 20s, infinite);
+    
 }
 
 
 /*------------------------------------*\
+
   Responsive
 \*------------------------------------*/
 @media (max-width: 1200px) { 
@@ -330,10 +332,6 @@ body{
         margin-top: 210px;
     }
 
-    .block-main-table{
-        box-shadow: 15px 24px #7E7E7E;
-    }
-
     .block-main-table td{
         font-size: 15px;
     }
@@ -341,7 +339,7 @@ body{
     .block-main-table-head-column{
         padding-top: 30px;
         padding-bottom: 30px;
-        border: 3px solid rgb(47, 53, 58);
+        border: 3px solid $color-base;
     }
     
     .block-main-table-column{
@@ -360,7 +358,8 @@ body{
 
 
 /*------------------------------------*\
-  Animation
+
+  animations
 \*------------------------------------*/
 @keyframes pulse {
     0% {
@@ -454,3 +453,24 @@ body{
     }
   }
 
+/*------------------------------------*\
+
+  Print
+\*------------------------------------*/
+  @media print {
+    .block-header-nav-text{
+        font-size: 20px;
+        padding: 0px;
+        color: $color-text3;
+    }
+    .block-header-nav-current .block-header-nav-text{
+        color: $color-text3;
+    }
+    .block-header-hiden-menu{
+        visibility: hidden;
+    }
+
+    .block-main-table-head{
+        color: $color-text3;
+    }
+ }
