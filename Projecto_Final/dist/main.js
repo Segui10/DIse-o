@@ -123,7 +123,7 @@ var Context = function () {
       localStorage.setItem('students', JSON.stringify(arr));
       var GRADED_TASKS = '';
       this.gradedTasks.forEach(function (taskItem) {
-        GRADED_TASKS += '<td role="column">' + taskItem.name + '</td>';
+        GRADED_TASKS += '<td role="column" class="block-main-table-head-column">' + taskItem.name + '</td>';
       });
 
       (0, _utils.loadTemplate)('templates/rankingList.html', function (responseText) {
@@ -354,7 +354,9 @@ window.onload = function () {
 /** Lisenerts to clear and routing the window location*/
 window.addEventListener("hashchange", router, false);
 window.addEventListener("searchchange", location = "#rankingList", false);
+window.addEventListener("resize", width, false);
 
+var opp = "";
 /** Function to roting app */
 function router() {
   console.log(location);
@@ -365,6 +367,7 @@ function router() {
     case "#addStudent":
       position(op);
       _context.context.addPerson();
+      opp = op;
       break;
 
     case "#rankingList":
@@ -372,16 +375,19 @@ function router() {
       _context.context.getTemplateRanking();
       location = "#rankingList";
       location.search = "";
+      opp = op;
       break;
 
     case "#addGradedTask":
       position(op);
       _context.context.addGradedTask();
+      opp = op;
       break;
 
     case "#updateStudent":
       _context.context.loadUpdateStudent(hashcode);
       position(op);
+      opp = op;
       break;
 
     case "#deleteStudent":
@@ -389,6 +395,36 @@ function router() {
       position(op);
       _context.context.getTemplateRanking();
       location.hash = "#rankingList";
+      location.search = "";
+      opp = op;
+      break;
+
+    case "#hideMenu":
+      /*if(window.innerWidth<=576){
+        console.log("responsive");
+        document.getElementById("block-header").setAttribute("class","menu-hiden")
+        console.log(document.getElementById("block-header").setAttribute("visibility","hidden"));
+      }else{
+        console.log("no-responsive");
+      }
+      location.hash="#rankingList";
+      location.search="";*/
+      console.log("responsive");
+      var x = document.getElementById("block-header");
+      var y = document.getElementById("content");
+      var z = document.getElementById("hideop");
+      if (x.className === "block-header") {
+        x.className += " responsive";
+        y.className += " responsive";
+        z.innerText = "Show Menu";
+        //document.getElementById("hideop").innerText("Show Menu");
+      } else {
+        x.className = "block-header";
+        y.className = "block-main";
+        z.innerText = "Hide Menu";
+        //document.getElementById("hideop").innerText("Hide Menu");
+      }
+      location.hash = opp;
       location.search = "";
       break;
 
@@ -428,6 +464,13 @@ function position(op) {
       document.getElementById("rankingList").className = 'block-header-nav-current';
       break;
 
+  }
+
+  function width() {
+    console.log(window.innerWidth);
+    if (window.innerWidth > 576) {
+      document.getElementById("menu-hiden").setAttribute("class", "menu-hiden");
+    }
   }
 }
 

@@ -1,0 +1,17 @@
+                            
+/* TEAM */                          
+Tu cargo dentro del proyecto: Segui
+Site: segui21314@gmail.com
+Twitter:@segui123452
+Location: Ontinyent, Valencia, España.  
+                 
+                        [...]
+								
+/* THANKS */	
+Name:Pep
+
+                        [...]
+/* SITE */                           
+Last update: 2017/11/21                            
+Standards: HTML5, CSS3, JS6                               
+Software: JS6, NodeJS.

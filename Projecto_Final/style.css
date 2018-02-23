@@ -81,13 +81,13 @@ body{
         /*Element Block container*/
         .block-header-nav-container{
             margin-top: 25px;
+            text-align: center;
         }
 
         /*Element text option*/
         .block-header-nav-text{
             padding: 18px;
             font-weight: bold;
-            text-align: center;
             font-size: 1em;
             text-decoration: none;
             color: rgba(255, 255, 255, 0.57);
@@ -106,6 +106,8 @@ body{
 
 /*Element decoration*/
 .block-header-decoration{
+    text-decoration: none;
+    color: black;
     position: fixed;
     width: 100%;
     height: 15px;
@@ -119,7 +121,7 @@ body{
 /*Element current page*/
 .block-header-nav-location {
     margin-top: 17px;
-    margin-left: 35%;
+    margin-left: 45%;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
     border-bottom: 10px solid #01BCF3;
@@ -130,6 +132,11 @@ body{
 /*Modifier current page*/
 .block-header-nav-nocurrent .block-header-nav-location{
     visibility: hidden;
+}
+
+.block-header-hiden-menu{
+    visibility: hidden;
+    margin-left: 40%;
 }
 
 /*------------------------------------*\
@@ -222,20 +229,20 @@ body{
 }
 
 @media (max-width: 992px) { 
-    /*Block*/
+    
     .block-header-nav-current{
         width: 180px;
     }
-    /*Block*/
+    
     .block-header-nav-nocurrent{
         width: 180px;
     }
-}
 
-    /*Element*/
     .block-header-nav-text{
         font-size: .8em;
     }
+}
+    
       
 @media (max-width: 768px) { 
 
@@ -256,6 +263,7 @@ body{
 }
 
 @media (max-width: 576px) { 
+
     .wraper{
         grid-template-areas:
         "header  header "
@@ -263,40 +271,90 @@ body{
         "footer  footer";
     }
 
+    .block-header.responsive{
+        height: 40px;
+    }
+
+    .block-header.responsive .block-header-nav{
+        visibility: hidden;
+    }
+    
     .block-header-nav{
+        margin: 0px;
         flex-flow: column;
-        height: 110px;
+        height: 130px;
     }
 
     .block-header-nav-container{
         margin-top: 25px;
-        margin-left: 30%;
+        margin-left: 0%;
     }
 
     .block-header{
-        height: 150px;
+        height: 200px;
     }
 
     .block-footer{
-        height: 18px;
+        height: 40px;
     }
+
     .block-header-nav-current{
+        height: 50px;
         width: 100%;
     }
+
     .block-header-nav-nocurrent{
+        height: 50px;
         width: 100%;
-    }
-    
-    .block-header-decoration{
-        margin-top: 150;
     }
 
     .block-header-nav-location {
         visibility: hidden;
     }
 
+    .block-header-nav-text{
+        padding: 20px;
+        font-size: 16px;
+        
+    }
+
+    .block-header-decoration{
+        height: 40px;   
+    }
+
+    .block-main.responsive{
+        margin-top: 50px;
+    }
+
     .block-main{
-        margin-top: 170px;
+        margin-top: 210px;
+    }
+
+    .block-main-table{
+        box-shadow: 15px 24px #7E7E7E;
+    }
+
+    .block-main-table td{
+        font-size: 15px;
+    }
+    
+    .block-main-table-head-column{
+        padding-top: 30px;
+        padding-bottom: 30px;
+        border: 3px solid rgb(47, 53, 58);
+    }
+    
+    .block-main-table-column{
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    
+    .block-header-hiden-menu{
+        visibility: visible;
+    }
+
+    .block-footer-decoration{
+        height: 40px;   
     }
 }
 
