@@ -33,6 +33,23 @@ body {
 * block-footer....................Block contain all the elements of footer
 * block-footer-decoration.........Footer decorations
 
+-Responsive
+* width: 1200px
+* width: 992px
+* width: 768px
+* width: 576px
+
+-Animations
+* pulse
+* test
+* borderRes
+* list
+
+-Print
+Hide the option to hide/show menu, change the color 
+white or colors light to black and bigger the font
+size on the menu
+
 \*------------------------------------*/
 /*------------------------------------*
   Header
@@ -348,5 +365,4 @@ body {
   .block-header-hiden-menu {
     visibility: hidden; }
   .block-main-table-head {
-    font-size: 20px;
     color: black; } }
