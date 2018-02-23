@@ -1,0 +1,21 @@
+@mixin location($color){
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid $color;
+}
+
+@mixin transitions($property,$duration,$timing:"linear"){
+    -webkit-transition: $property $duration $timing;
+    transition: $property $duration $timing;
+    transition: $property $duration $timing;
+}
+
+@mixin animations($name,$duration,$timing:"linear"){
+    -webkit-animation: $name $duration $timing;
+    -moz-animation: $name $duration $timing;
+    animation: $name $duration $timing;
+}
+
+@mixin boxShadow($height,$width,$color){
+    box-shadow: $height $width $color
+}

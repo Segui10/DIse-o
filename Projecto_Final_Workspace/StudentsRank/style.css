@@ -1,0 +1,347 @@
+/* Styles go here */
+body {
+  margin: 0px;
+  font-family: 'Nunito Sans', sans-serif;
+  background-color: #f0f0f0;
+  display: flex; }
+
+.wraper {
+  display: grid;
+  grid-template-columns: 10% 1140px;
+  grid-template-areas: "header  header " "...... content" "footer  footer"; }
+
+/*------------------------------------*
+           Table of Contents
+-Header
+* block-header....................Block contain all the elements of header
+* block-header-nav................Menu of the distin page
+* block-header-nav-current........Current page 
+* block-header-nav-nocurrent......Another pages
+* block-header-nav-container......Container of the options
+* block-header-nav-text...........Text of the options
+* block-header-decoration.........Header decoration
+
+-Main
+* block-main......................Block contain all the elements of main
+* block-main-table................Table of the students
+* block-main-table-head...........Head of the student table
+* block-main-table-head-column....Column name of the student table
+* block-main-table-column.........Columns of the student table
+* block-main-table-row............Rows of the student table
+
+-Footer
+* block-footer....................Block contain all the elements of footer
+* block-footer-decoration.........Footer decorations
+
+\*------------------------------------*/
+/*------------------------------------*
+  Header
+\*------------------------------------*/
+/*Block component*/
+.block-header {
+  grid-area: header;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 85px;
+  background-color: #2f353a;
+  display: flex;
+  align-self: flex-start; }
+
+/*Elemnt Block menu*/
+.block-header-nav {
+  width: 100%;
+  height: 70px;
+  background-color: #2f353a;
+  display: flex;
+  flex-flow: row;
+  justify-content: center; }
+
+/*Element Block option*/
+.block-header-nav-current {
+  width: 200px;
+  margin-top: 0px;
+  background-color: #2f353a;
+  align-self: flex-start; }
+
+/*Element Block option*/
+.block-header-nav-nocurrent {
+  width: 200px;
+  margin-top: 0px;
+  background-color: #2f353a;
+  align-self: flex-start; }
+
+/*Element Block container*/
+.block-header-nav-container {
+  margin-top: 25px;
+  text-align: center; }
+
+/*Element text option*/
+.block-header-nav-text {
+  padding: 18px;
+  font-weight: bold;
+  font-size: 1em;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.57); }
+
+/*Modifier option*/
+.block-header-nav-current .block-header-nav-text {
+  color: white; }
+
+/*Modifier option*/
+.block-header-nav-text:hover {
+  color: white; }
+
+/*Element decoration*/
+.block-header-decoration {
+  text-decoration: none;
+  color: black;
+  position: fixed;
+  width: 100%;
+  height: 15px;
+  background-color: #01BCF3;
+  margin-top: 70;
+  -webkit-animation: pulse 20s infinite;
+  -moz-animation: pulse 20s infinite;
+  animation: pulse 20s infinite;
+  display: flex;
+  align-self: flex-end; }
+
+/*Element current page*/
+.block-header-nav-location {
+  margin-top: 17px;
+  margin-left: 45%;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #01BCF3;
+  width: 1px;
+  -webkit-animation: test 20s infinite;
+  -moz-animation: test 20s infinite;
+  animation: test 20s infinite; }
+
+/*Modifier current page*/
+.block-header-nav-nocurrent .block-header-nav-location {
+  visibility: hidden; }
+
+.block-header-hiden-menu {
+  visibility: hidden;
+  margin-left: 40%; }
+
+/*------------------------------------*
+  Main
+\*------------------------------------*/
+/*Block component*/
+.block-main {
+  grid-area: content;
+  margin-top: 100px;
+  margin-bottom: 90px;
+  -webkit-animation: list 1.5s "linear";
+  -moz-animation: list 1.5s "linear";
+  animation: list 1.5s "linear"; }
+
+/*Block table*/
+.block-main-table {
+  box-shadow: 5px 8px #7E7E7E;
+  border-collapse: collapse;
+  border-style: solid;
+  border-color: #2f353a;
+  background-color: #c8c8c8; }
+
+/*Block column name*/
+.block-main-table-head {
+  background-color: #2f353a;
+  color: white; }
+
+/*Element name*/
+.block-main-table-head-column {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 1px solid #2f353a; }
+
+/*Element column*/
+.block-main-table-column {
+  padding-top: 10px;
+  padding-bottom: 10px; }
+
+/*Modifier row*/
+.block-main-table-row:hover {
+  background-color: rgba(1, 203, 243, 0.3); }
+
+/*------------------------------------*
+  Footer
+\*------------------------------------*/
+/*Block component*/
+.block-footer {
+  grid-area: footer;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background-color: #2f353a; }
+
+/*Element decoration*/
+.block-footer-decoration {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  height: 18px;
+  background-color: #01BCF3;
+  -webkit-animation: pulse 20s infinite;
+  -moz-animation: pulse 20s infinite;
+  animation: pulse 20s infinite; }
+
+/*------------------------------------*
+  Responsive
+\*------------------------------------*/
+@media (max-width: 1200px) {
+  /*Block*/
+  .block-header-nav-current {
+    width: 190px; }
+  /*Block*/
+  .block-header-nav-nocurrent {
+    width: 190px; } }
+
+@media (max-width: 992px) {
+  .block-header-nav-current {
+    width: 180px; }
+  .block-header-nav-nocurrent {
+    width: 180px; }
+  .block-header-nav-text {
+    font-size: .8em; } }
+
+@media (max-width: 768px) {
+  .block-header-nav {
+    margin-left: 10%; }
+  .block-header-nav-current {
+    width: 170px;
+    height: 45px; }
+  .block-header-nav-nocurrent {
+    width: 170px;
+    height: 45px; } }
+
+@media (max-width: 576px) {
+  .wraper {
+    grid-template-areas: "header  header " "content content" "footer  footer"; }
+  .block-header.responsive {
+    height: 40px; }
+  .block-header.responsive .block-header-nav {
+    visibility: hidden; }
+  .block-header-nav {
+    margin: 0px;
+    flex-flow: column;
+    height: 130px; }
+  .block-header-nav-container {
+    margin-top: 25px;
+    margin-left: 0%; }
+  .block-header {
+    height: 200px; }
+  .block-footer {
+    height: 40px; }
+  .block-header-nav-current {
+    height: 50px;
+    width: 100%; }
+  .block-header-nav-nocurrent {
+    height: 50px;
+    width: 100%; }
+  .block-header-nav-location {
+    visibility: hidden; }
+  .block-header-nav-text {
+    padding: 20px;
+    font-size: 16px; }
+  .block-header-decoration {
+    height: 40px; }
+  .block-main.responsive {
+    margin-top: 50px; }
+  .block-main {
+    margin-top: 210px; }
+  .block-main-table td {
+    font-size: 15px; }
+  .block-main-table-head-column {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border: 3px solid #2f353a; }
+  .block-main-table-column {
+    padding-top: 30px;
+    padding-bottom: 30px; }
+  .block-header-hiden-menu {
+    visibility: visible; }
+  .block-footer-decoration {
+    height: 40px; } }
+
+/*------------------------------------*
+  animations
+\*------------------------------------*/
+@keyframes pulse {
+  0% {
+    background-color: #01F3DF; }
+  15% {
+    background-color: #016AF3; }
+  30% {
+    background-color: #F301E7; }
+  45% {
+    background-color: #F30101; }
+  60% {
+    background-color: #F38A01; }
+  75% {
+    background-color: #E3F301; }
+  90% {
+    background-color: #01F30D; }
+  100% {
+    background-color: #01F3DF; } }
+
+@keyframes test {
+  0% {
+    border-bottom-color: #01F3DF; }
+  15% {
+    border-bottom-color: #016AF3; }
+  30% {
+    border-bottom-color: #F301E7; }
+  45% {
+    border-bottom-color: #F30101; }
+  60% {
+    border-bottom-color: #F38A01; }
+  75% {
+    border-bottom-color: #E3F301; }
+  90% {
+    border-bottom-color: #01F30D; }
+  100% {
+    border-bottom-color: #01F3DF; } }
+
+@keyframes borderRes {
+  0% {
+    border-color: #01F3DF; }
+  15% {
+    border-color: #016AF3; }
+  30% {
+    border-color: #F301E7; }
+  45% {
+    border-color: #F30101; }
+  60% {
+    border-color: #F38A01; }
+  75% {
+    border-color: #E3F301; }
+  90% {
+    border-color: #01F30D; }
+  100% {
+    border-color: #01F3DF; } }
+
+@keyframes list {
+  0% {
+    opacity: 0;
+    transform: translate(0px, 20px); }
+  100% {
+    opacity: 1;
+    transform: translate(0px, 0px); } }
+
+    /*------------------------------------*\
+
+  Print
+\*------------------------------------*/
+  @media print {
+    .block-header-nav-text{
+        font-size: 30px;
+        padding: 0px;
+    }
+ }
